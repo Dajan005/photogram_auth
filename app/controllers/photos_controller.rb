@@ -1,9 +1,9 @@
 class PhotosController < ApplicationController
-  def index
-    @photos = Photo.all
+    def index
+      @photos = Photo.all.order(created_at: :desc)
 
-    render("photos/index.html.erb")
-  end
+      render("photos/index.html.erb")
+    end
 
   def show
     @photo = Photo.find(params[:id])

@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3>User #<%= @user.id %></h3>
+  <h3><%= @user.username %></h3>
 </div>
 
 <div class="row">
@@ -10,17 +10,23 @@
 
       <dt>Email</dt>
       <dd><%= @user.email %></dd>
-
-      <dt>Photos</dt>
-      <dd>
-        <ul class="list-group">
-          <% Photo.where(:user_id => @user.id).each do |photo| %>
-    <li class="list-group-item">
-      <img src = "<%= photo.image %>" width="1000"></td>
-    </li>
-  <% end %>
-
-    </dl>
-
+    </div>
   </div>
-</div>
+
+
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+    <% Photo.where(:user_id => @user.id).each do |photo| %>
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a href="/users/<%=@user.id%>"><%=@user.username%> </a>
+        </h3>
+      </div>
+
+      <div class="panel-body">
+      <img src = "<%= photo.image %>" class="img-responsive"</td>
+    </div>
+      <% end %>
+    </div>
