@@ -15,7 +15,7 @@
 
           <div class="panel-title">
             <h5><a href="/users/<%=photo.user_id %>">
-              <%=photo.user_id%></a>
+              <%= photo.user.username %></a>
               <small> <%= time_ago_in_words(photo.created_at)%> ago</small></h5>
           </div>
 
