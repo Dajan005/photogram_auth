@@ -1,9 +1,9 @@
 class MylikesController < ApplicationController
 
   def show
-    @user = User.find_by("id")
-    @likes = Like.all
-    @photos = Photo.all
+    @likes = current_user.likes.order(created_at: :desc)
+
+    render("mylikes/show.html.erb")
 
   end
 
